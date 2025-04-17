@@ -28,4 +28,13 @@ public class PeliculasController {
             return "error al obtener series"+e.getMessage();
         }
     }
+    @GetMapping("/Descubrir")
+    public String getDescubrir(){
+        try {
+            return tmdbService.getDiscover();
+        }
+        catch (Exception e){
+           return "error al obtener Descubrir"+e.getMessage();
+        }
+    }
 }
