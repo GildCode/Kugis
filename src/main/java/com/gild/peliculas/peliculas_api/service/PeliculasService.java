@@ -19,10 +19,16 @@ public class PeliculasService {
     private final String API_URL_TSeries = "https://api.themoviedb.org/3/tv/popular?language=es-ES&page=1";
     private final String API_URL_Descubrir="https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
     private final ObjectMapper objectMapper = new ObjectMapper();
-
+    // Token para autenticación con la API de TMDB
     @Value("${tmdb.api.token}")
     private String BEARER_TOKEN;
-
+    /**
+     * Realiza una petición a TMDB para obtener las sugeridas segun la API ,
+     * y retorna  en formato JSON.
+     *
+     * @return JSON con las 10 películas más recientes
+     * @throws IOException en caso de fallo en la petición o procesamiento del JSON
+     */
     public String getTrendingMovies() throws Exception {
         Request request = new Request.Builder()
                 .url(API_URL_TPeliculas)

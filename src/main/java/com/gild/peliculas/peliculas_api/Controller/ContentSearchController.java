@@ -6,11 +6,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
+/**
+ * Controlador REST para manejar la búsqueda de contenido (películas o series) por nombre.
+ */
 
 @RestController
 @RequestMapping("/api/search")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")// Permite solicitudes desde cualquier origen
+
+/**
+ * Endpoint para buscar contenido por nombre.
+ * @param nameContent nombre del contenido a buscar
+ * @return JSON con los resultados de la búsqueda o un mensaje de error
+ */
 public class ContentSearchController {
     @Autowired
     private SearchService searchContent;

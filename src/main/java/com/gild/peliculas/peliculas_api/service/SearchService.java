@@ -15,11 +15,13 @@ public class SearchService {
     private  final String URL_API_SEARCH_MOVIE="https://api.themoviedb.org/3/search/movie";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
+    // Token para autenticación con la API de TMDB
     @Value("${tmdb.api.token}")
     private String BEARER_TOKEN;
+    //API key  para autenticación con la API de TMDB
     @Value("${tmdb.api.key}")
     private String API_KEY;
-
+    //Realiza una solicitud para realizar la busqueda de peliculas
     public String searchContent(String nameContent) throws IOException {
         HttpUrl url=HttpUrl.parse(URL_API_SEARCH_MOVIE).newBuilder()
                 .addQueryParameter("query",nameContent)
