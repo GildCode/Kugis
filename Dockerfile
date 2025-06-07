@@ -1,14 +1,13 @@
-# Usamos una imagen base de Java
-FROM openjdk:17-jdk-slim
-
-# Directorio donde se copiará el jar
+# Etapa 1: Build
+FROM maven:3.8.6-openjdk-17 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copia el jar generado al contenedor
-COPY target/peliculas-api-0.0.1-SNAPSHOT.jar app.jar
-
-# Expone el puerto (ajústalo si tu app corre en otro)
+# Etapa 2: Runtime
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=build /app/target/peliculas-api-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Comando para correr la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
