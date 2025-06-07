@@ -11,12 +11,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable() // Desactiva CSRF
+                .cors() // habilita CORS
+                .and()
+                .csrf().disable()
                 .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll() // Permite todas las peticiones sin autenticación
+                        .anyRequest().permitAll()
                 )
-                .httpBasic().disable(); // Desactiva el login por ventana emergente (muy importante)
+                .httpBasic().disable();
 
         return http.build();
     }
 }
+

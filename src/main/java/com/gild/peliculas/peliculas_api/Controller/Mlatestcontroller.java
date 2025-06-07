@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/latest")
-@CrossOrigin(origins = "*")// Permite solicitudes desde cualquier origen (ideal para pruebas o aplicaciones públicas)
+
 public class Mlatestcontroller {
     @Autowired
     private MlatestService mlatestService;

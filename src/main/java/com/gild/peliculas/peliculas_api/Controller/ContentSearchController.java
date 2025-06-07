@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/search")
-@CrossOrigin(origins = "*")// Permite solicitudes desde cualquier origen
+
 
 /**
  * Endpoint para buscar contenido por nombre.

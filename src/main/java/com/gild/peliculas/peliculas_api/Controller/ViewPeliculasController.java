@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping("/api/view")
-@CrossOrigin(origins = "*")// Permite solicitudes desde cualquier origen
+
 public class ViewPeliculasController {
 
     @Autowired
