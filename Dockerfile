@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia el jar generado al contenedor
-COPY target/*.jar app.jar
+COPY target/peliculas-api-0.0.1-SNAPSHOT.jar app.jar
 
 # Expone el puerto (ajústalo si tu app corre en otro)
 EXPOSE 8080
